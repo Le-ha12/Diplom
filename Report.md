@@ -19,8 +19,7 @@
 
 #### Отчет Allure
 
-![img.png](img.png)![отчет.jpeg](..%2F..%2F..%2FDownloads%2F%EE%F2%F7%E5%F2.jpeg)
-
+![Изображение](https://skrinshoter.ru/s/261123/IeG5F14v.jpg?download=1&name=Скриншот-26-11-2023%2019:11:33.jpg)
 
 #### Общие рекомендации
 
