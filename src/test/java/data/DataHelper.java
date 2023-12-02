@@ -10,32 +10,28 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Random;
 
-@Data
+@Value
 public class DataHelper {
     private Faker faker;
 
-    @Value
-    public static class NumberCardClass {
-        private String numberCard;
-    }
 
-    public static NumberCardClass getNumberCardApproved() {
-        return new NumberCardClass("4444 4444 4444 4441");
+    public static String getNumberCardApproved() {
+        return "4444 4444 4444 4441";
     }
-    public static NumberCardClass getNumberCardDeclined() {
-        return new NumberCardClass("4444 4444 4444 4442");
+    public static String getNumberCardDeclined() {
+        return "4444 4444 4444 4442";
     }
-    public static NumberCardClass getNumberCardSymbol() {
-        return new NumberCardClass("As!@");
+    public static String getNumberCardSymbol() {
+        return "As!@";
     }
-    public static NumberCardClass getNumberCardLessQuantity() {
-        return new NumberCardClass("4");
+    public static String getNumberCardLessQuantity() {
+        return "4";
     }
-    public static NumberCardClass getNumberCardMoreQuantity() {
-        return new NumberCardClass("4444 4444 4444 4444 4");
+    public static String getNumberCardMoreQuantity() {
+        return "4444 4444 4444 4444 4";
     }
-    public static NumberCardClass getNumberCardEmpty() {
-        return new NumberCardClass("");
+    public static String getNumberCardEmpty() {
+        return "";
     }
 
      public static String getCardownerValid() {
@@ -109,7 +105,7 @@ public class DataHelper {
     public static String getCvcVal() {
         Random random = new Random();
         int rand = random.nextInt(4);
-        String cvcVal[] = {"121", "115", "243", "604"};
+        String[] cvcVal = {"121", "115", "243", "604"};
         return cvcVal[rand];
     }
 

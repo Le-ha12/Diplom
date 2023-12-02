@@ -17,6 +17,8 @@ build/
 *.iml
 *.ipr
 out/
+.allure
+/data
 
 ### NetBeans ###
 /nbproject/private/

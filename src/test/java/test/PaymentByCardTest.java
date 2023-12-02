@@ -1,7 +1,7 @@
 package test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.BDclass;
+import data.DbClass;
 import data.DataHelper;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
@@ -26,14 +26,11 @@ public class PaymentByCardTest {
     }
 
     @BeforeEach
-    void setUp(){
+    void deleteTable() {
+        DbClass.deleteTable();
         open("http://localhost:8080");
     }
 
-    @BeforeEach
-    void deleteTable() {
-        BDclass.deleteTable();
-    }
 
     //1. Валидная оплата по карте
     @Test
@@ -47,7 +44,7 @@ public class PaymentByCardTest {
         var setCvc = DataHelper.getCvcVal();
         paymentByCard.fillingFormPayment(setNumberCard, setMonth, setYear, setCardowner, setCvc);
         paymentByCard.approved();
-        var paymentStatus = BDclass.statusPaymentByCard();
+        var paymentStatus = DbClass.statusPaymentByCard();
         assertEquals("APPROVED", paymentStatus);
     }
 
@@ -63,7 +60,7 @@ public class PaymentByCardTest {
         var setCvc = DataHelper.getCvcVal();
         paymentByCard.fillingFormPayment(setNumberCard, setMonth, setYear, setCardowner, setCvc);
         paymentByCard.errorCard();
-        var paymentStatus = BDclass.statusPaymentByCard();
+        var paymentStatus = DbClass.statusPaymentByCard();
         assertEquals("DECLINED", paymentStatus);
     }
 

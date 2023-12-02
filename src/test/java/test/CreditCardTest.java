@@ -1,13 +1,15 @@
 package test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.BDclass;
+import data.DbClass;
 import data.DataHelper;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+
 import page.WebService;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -26,13 +28,10 @@ public class CreditCardTest {
     }
 
     @BeforeEach
-    void setUp(){
-        open("http://localhost:8080");
-    }
-
-    @BeforeEach
     void deleteTable() {
-        BDclass.deleteTable();
+        DbClass.deleteTable();
+
+        open("http://localhost:8080");
     }
 
     //1. Валидная покупка в кредит
@@ -47,7 +46,7 @@ public class CreditCardTest {
         var setCvc = DataHelper.getCvcVal();
         creditCard.fillingFormCredit(setNumberCard, setMonth, setYear, setCardowner, setCvc);
         creditCard.approved();
-        var creditStatus = BDclass.statusCreditCard();
+        var creditStatus = DbClass.statusCreditCard();
         assertEquals("APPROVED", creditStatus);
     }
 
@@ -125,7 +124,7 @@ public class CreditCardTest {
     //7. Отправка формы "Кредит по данным карты" с истекшим сроком карты по году.
     @Test
     void shouldBeExpiredYearCreditTest () {
-        BDclass.deleteTable();
+        DbClass.deleteTable();
         var webService = new WebService();
         var creditCard = webService.creditCard();
         var setNumberCard = DataHelper.getNumberCardApproved();

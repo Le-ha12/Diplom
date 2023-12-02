@@ -27,8 +27,8 @@ public class CreditCard {
         formCredit.shouldBe(Condition.visible);
     }
 
-    public void fillingFormCredit(DataHelper.NumberCardClass setNumberCard, String setMonth, String setYear, String setCardowner, String setCvc) {
-        numberCard.setValue(setNumberCard.getNumberCard());
+    public void fillingFormCredit(String setNumberCard, String setMonth, String setYear, String setCardowner, String setCvc) {
+        numberCard.setValue(setNumberCard);
         month.setValue(setMonth);
         year.setValue(setYear);
         cardowner.setValue(setCardowner);

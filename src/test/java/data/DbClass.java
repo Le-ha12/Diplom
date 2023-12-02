@@ -9,9 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class BDclass {
+public class DbClass {
 
-    private static Connection getConn() throws SQLException {
+    @SneakyThrows
+    private static Connection getConn(){
         return DriverManager.getConnection(
                 System.getProperty("db.url"),
                 System.getProperty("db.user"),
@@ -19,7 +20,8 @@ public class BDclass {
         );
     }
 
-    @BeforeEach
+
+    @SneakyThrows
     public static void deleteTable(){
         var delPaymentByCard = "DELETE FROM payment_entity";
         var delCreditCard = "DELETE FROM credit_request_entity";
@@ -30,9 +32,7 @@ public class BDclass {
             runner.update(conn, delCreditCard);
             runner.update(conn, delOrder);
         }
-        catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+
     }
 
     @SneakyThrows

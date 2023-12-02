@@ -34,7 +34,7 @@ dependencies {
     testImplementation 'com.google.code.gson:gson:2.8.6'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
-    testImplementation 'mysql:mysql-connector-java:8.0.27'
+    testImplementation 'mysql:mysql-connector-java:8.0.33'
     testImplementation 'org.postgresql:postgresql:42.3.1'
     testImplementation 'io.qameta.allure:allure-selenide:2.13.6'
 }
