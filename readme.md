@@ -29,8 +29,8 @@
 8. Открыть терминал и запустить тесты командой
 ./gradlew clean test "-Ddb.url=jdbc:postgresql://185.119.57.9:5432/app";
 9. Сгенерировать отчет с помощью фреймворка Allure:
-./gradlew allureReport
-./gradlew allureServe;
+   1. ./gradlew allureReport
+   2. ./gradlew allureServe;
 10. Перейти в виртуальную машину и остановить контейнеры командой docker-compose stop;
 11. Удалить контейнеры командой docker-compose down.
 
