@@ -27,11 +27,10 @@
 7. Для запуска jar-файла с базой данных PostgreSQL необходимо перейти в виртуальную машину и воспользоваться командой
  java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar;
 8. Открыть терминал и запустить тесты командой
-./gradlew clean test "-Ddb.url=jdbc:postgresql://185.119.57.9:5432/app";
+./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app";
 9. Сгенерировать отчет с помощью фреймворка Allure:
    1. ./gradlew allureReport
    2. ./gradlew allureServe;
-10. Перейти в виртуальную машину и остановить контейнеры командой docker-compose stop;
-11. Удалить контейнеры командой docker-compose down.
+10. Удалить контейнеры командой docker-compose down.
 
 

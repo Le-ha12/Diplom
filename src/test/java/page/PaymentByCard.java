@@ -2,20 +2,18 @@ package page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import data.DataHelper;
-import lombok.Data;
+
 import org.openqa.selenium.By;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.appear;
+
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static data.DataHelper.*;
 
-@Data
+
+
 public class PaymentByCard {
     private SelenideElement formPayment = $(byText("Оплата по карте"));
     private SelenideElement numberCard = $(By.cssSelector("input[placeholder='0000 0000 0000 0000']"));
